@@ -1,0 +1,34 @@
+package fileRename;
+import java.io.File;
+import java.util.Scanner;
+public class FileRename {
+	public static void  main(String[] arges) {
+		
+		Scanner sc= new Scanner(System.in);
+		
+		String dynamicInput1,dynamicInput2;
+		dynamicInput1=sc.nextLine();
+		dynamicInput2=sc.nextLine();
+
+		String imagePath="D:\\Paper_Images\\";
+		File fileOfIamges=new File(imagePath);
+		String[] listOfImages = fileOfIamges.list();
+		
+		for(String S:listOfImages) {
+			
+			File before=new File(imagePath+S);			
+			
+			String s1=S.substring(index1,index2);//index1 may be 0th index of string, index2 is the last index value where we are going to insert the dynamicInput1 
+			String s2=S.substring(index3,index4);//index3 may be after the index2 or index value where we are going to insert the dynamicInput1 before,index4 is the last index value where we are going to insert the dynamicInput2 
+			String s3=S.substring(index5,index6);//index5 may be after the index4 or index value where we are going to insert the dynamicInput2 before, index6 is may be the last index value of the string.
+			
+			String S1=s1+dynamicInput1+s2+dynamicInput2+s3;
+			File after=new File(imagePath+S1);
+			
+			before.renameTo(after);
+			
+			System.out.println(before+" is changed suscessfully to "+after);
+		}
+	}
+
+}
